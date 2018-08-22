@@ -1,10 +1,10 @@
-# -*- coding: GBK -*-
+# -*- coding: UTF-8 -*-
 
 import win32clipboard as w
 
 import win32con
 
-#»ñÈ¡¼ôÇÐ°åÄÚÈÝ
+#ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½
 
 def gettext():
     w.OpenClipboard()
@@ -12,11 +12,10 @@ def gettext():
     w.CloseClipboard()
     return t
 
-#Ð´Èë¼ôÇÐ°åÄÚÈÝ
+#Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½
 
 def settext(aString):
     w.OpenClipboard()
     w.EmptyClipboard()
     w.SetClipboardData(win32con.CF_TEXT, aString)
     w.CloseClipboard()
-

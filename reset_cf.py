@@ -1,4 +1,4 @@
-# -*- coding: GBK -*-
+# -*- coding: UTF-8 -*-
 
 import pyautogui
 import sys
@@ -11,18 +11,13 @@ if len(sys.argv)>2 :
 cf_count=int(sys.argv[1])+1
 
 
-pyautogui.hotkey('alt', 'tab') # ÇÐ»»´°¿Ú
+pyautogui.hotkey('alt', 'tab') # ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½
 
-#Ä¬ÈÏµ±Ç°ÊÇÒÑ¾­µ÷ÓÃÌõ¼þ¸ñÊ½µÄ´°¿Ú
+#Ä¬ï¿½Ïµï¿½Ç°ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ä´ï¿½ï¿½ï¿½
 
 for i in range(1,6):
-    pyautogui.hotkey('tab') # ÇÐ»»
+    pyautogui.hotkey('tab') # ï¿½Ð»ï¿½
 
 
 for i in range(1,cf_count):
     execfile("F:\Python27\USER_CODE\single_step_cf.py")
-
-
-    
-
-

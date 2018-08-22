@@ -1,4 +1,4 @@
-# -*- coding: GBK -*-
+# -*- coding: UTF-8 -*-
 
 import pyautogui
 

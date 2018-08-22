@@ -1,4 +1,4 @@
-# -*- coding: GBK -*-
+# -*- coding: UTF-8 -*-
 
 import pyautogui,sys,string,time,re
 import randa_vportal,CV
@@ -30,14 +30,14 @@ last_row=result.index('--end')
 p1_list=result[first_row+1:last_row]
 del result[last_row]
 
-# ´ò¿ªÐ´ÈëµÄÎÄ¼þ
+# ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 name_str='W064_result_'+ str(time.strftime("%m%d%H%M",time.localtime()))+'.csv'
 f = open(name_str, 'w')
 f.write('From_date;To_date;Product;Sold#;Items;Amount;Invalid;No\n')
 
 
 
-# ÓÃÀ´²ð·Ö×Ö·û´®µÄ×Ô¶¨Òåº¯Êý,×îÖÕÊä³öÒ»¸ö×Öµä
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½åº¯ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Öµï¿½
 def split_order_fulfilment(str1):
     str2=re.findall(r"\--+(.+?)\+F3=Exit",str1)
     str3=str2[0]
@@ -54,7 +54,7 @@ def split_order_fulfilment(str1):
         list2.extend(re.findall(r'[\d]{1,9}$',op))
     return str3,new_list,list2
 
-screenWidth, screenHeight = pyautogui.size() # ÆÁÄ»³ß´ç
+screenWidth, screenHeight = pyautogui.size() # ï¿½ï¿½Ä»ï¿½ß´ï¿½
 randa_vportal.login(sys.argv[1].lower(),sys.argv[2].upper())
 time.sleep(3)
 pyautogui.hotkey('enter',interval=0.25)
@@ -68,10 +68,10 @@ randa_vportal.enter_w064(i)
 for p1 in p1_list:
     i +=1
     time.sleep(1)
-    for a1 in a1_list:        
+    for a1 in a1_list:
         str1=randa_vportal.W064(a1,d1_list[0],d1_list[1],p1)
         this_str,list1,list2=split_order_fulfilment(str1)
-        t=0      
+        t=0
         for line_out in list1:
             str2=d1_list[0]+';'+d1_list[1]+';'+ p1+';'+a1+';'+line_out+';'+list2[t]
             if this_str<>last_str:
@@ -82,7 +82,5 @@ for p1 in p1_list:
             t +=1
         find_ix +=1
         last_str=this_str
-        time.sleep(1)        
+        time.sleep(1)
 f.close()
-    
-    

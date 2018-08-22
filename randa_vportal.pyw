@@ -1,9 +1,9 @@
-# -*- coding: GBK -*-
+# -*- coding: UTF-8 -*-
 
 import pyautogui,sys,time,string
 import CV
 
-screenWidth, screenHeight = pyautogui.size() # ÆÁÄ»³ß´ç
+screenWidth, screenHeight = pyautogui.size() # ï¿½ï¿½Ä»ï¿½ß´ï¿½
 
 
 def login(userid,userpw):
@@ -15,7 +15,7 @@ def login(userid,userpw):
     #y1=0.8870
     #pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # username
     userlocation = pyautogui.locateOnScreen('abs_user.png')
-    buttonx, buttony = pyautogui.center(userlocation)    
+    buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.doubleClick(buttonx,buttony) # username
     pyautogui.hotkey('end')         # end
     for i in range(1,12):
@@ -28,14 +28,14 @@ def login(userid,userpw):
 def logout():
     x1=0.81445
     y1=0.0795
-    pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # µã»÷ÍË³ö
+    pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½
     pyautogui.hotkey('enter',interval=1.5)
 
 def switch_company_0111():
     x=0.8914
     y=0.0777
     userlocation = pyautogui.locateOnScreen('title_row.png')
-    buttonx, buttony = pyautogui.center(userlocation)  
+    buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
     for i in range(1,2):
@@ -96,8 +96,8 @@ def switch_company_0812():
     for i in range(1,7):
         pyautogui.hotkey('down',interval=1.5)
     pyautogui.hotkey('enter',interval=1.5)
-    
-def cm18():    
+
+def cm18():
     x1=0.05
     y1=0.09444
     pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # command
@@ -111,10 +111,10 @@ def cm18():
     im1 = pyautogui.screenshot(name_str)
     pyautogui.hotkey('enter',interval=1.55)
 
-def E070(account1,wk_off=0):    
+def E070(account1,wk_off=0):
     x1=0.05
     y1=0.09444
-    wk1=int(time.strftime("%w",time.localtime()))+1+int(wk_off)*7    
+    wk1=int(time.strftime("%w",time.localtime()))+1+int(wk_off)*7
     d2=str(time.strftime("%y%m%d",time.localtime()-wk1))
     d1=str(time.strftime("%y%m%d",time.localtime()-wk1-7))
     pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # command
@@ -123,11 +123,11 @@ def E070(account1,wk_off=0):
     pyautogui.typewrite(account1,interval=1.5)
     pyautogui.press('tab',interval=1.5)
     pyautogui.typewrite('S',interval=1.5)
-    pyautogui.typewrite(d1,interval=1.5)   
+    pyautogui.typewrite(d1,interval=1.5)
     pyautogui.typewrite(d2,interval=1.5)
     pyautogui.press('tab',interval=1.5)
     pyautogui.press('Y',interval=1.5)
-    pyautogui.press('T',interval=1.5)    
+    pyautogui.press('T',interval=1.5)
     # save screenshot
     name_str='E070_screenshot_'+ str(time.strftime("%m%d%H%M",time.localtime()))+'.png'
     im1 = pyautogui.screenshot(name_str)
@@ -155,7 +155,7 @@ def W064(a1,d1,d2,p1):
     pyautogui.typewrite(d2,interval=0.5)
     for i in range(3):
         pyautogui.press('tab',interval=1.5)
-    pyautogui.typewrite(p1,interval=0.5)    
+    pyautogui.typewrite(p1,interval=0.5)
     pyautogui.hotkey('enter',interval=0.5)
     time.sleep(3)
     pyautogui.click(screenWidth/2,screenHeight/2,button='left')
@@ -169,5 +169,5 @@ def W064(a1,d1,d2,p1):
     return str1
 
 
-if __name__=="__main__": 
+if __name__=="__main__":
     login(sys.argv[1].lower(),sys.argv[2].upper())

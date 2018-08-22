@@ -1,10 +1,10 @@
-# -*- coding: GBK -*-
+# -*- coding: UTF-8 -*-
 
 import pyautogui,time
 
-screenWidth, screenHeight = pyautogui.size() # ÆÁÄ»³ß´ç
+screenWidth, screenHeight = pyautogui.size() # ï¿½ï¿½Ä»ï¿½ß´ï¿½
 
-mouseX, mouseY = pyautogui.position() # ·µ»Øµ±Ç°Êó±êÎ»ÖÃ£¬×¢Òâ×ø±êÏµÍ³ÖÐ×óÉÏ·½ÊÇ(0, 0)
+mouseX, mouseY = pyautogui.position() # ï¿½ï¿½ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã£ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½(0, 0)
 
 print (" X coefficient:", float(mouseX)/screenWidth)
 
