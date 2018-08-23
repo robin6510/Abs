@@ -1,10 +1,10 @@
 # -*- coding: UTF-8 -*-
 
-import pyautogui,sys,time,string
+import pyautogui,sys,time,string,os
 import CV
 
 screenWidth, screenHeight = pyautogui.size() # »ñÈ¡ÆÁÄ»³ß´ç
-
+curr_path=os.path.abspath('.')+(r'\PNG')
 
 def login(userid,userpw):
     pyautogui.hotkey('win','4',interval=2.25)  #open chrome
@@ -14,7 +14,7 @@ def login(userid,userpw):
     #x1=0.9585
     #y1=0.8870
     #pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # username
-    userlocation = pyautogui.locateOnScreen('abs_user.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_user.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.doubleClick(buttonx,buttony) # username
     pyautogui.hotkey('end')         # end
@@ -34,7 +34,7 @@ def logout():
 def switch_company_0111():
     x=0.8914
     y=0.0777
-    userlocation = pyautogui.locateOnScreen('title_row.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
@@ -45,7 +45,7 @@ def switch_company_0111():
 def switch_company_0511():
     x=0.8914
     y=0.0777
-    userlocation = pyautogui.locateOnScreen('title_row.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
@@ -56,7 +56,7 @@ def switch_company_0511():
 def switch_company_0512():
     x=0.8914
     y=0.0777
-    userlocation = pyautogui.locateOnScreen('title_row.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
@@ -67,7 +67,7 @@ def switch_company_0512():
 def switch_company_0513():
     x=0.8914
     y=0.0777
-    userlocation = pyautogui.locateOnScreen('title_row.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
@@ -78,7 +78,7 @@ def switch_company_0513():
 def switch_company_0712():
     x=0.8914
     y=0.0777
-    userlocation = pyautogui.locateOnScreen('title_row.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
@@ -89,7 +89,7 @@ def switch_company_0712():
 def switch_company_0812():
     x=0.8914
     y=0.0777
-    userlocation = pyautogui.locateOnScreen('title_row.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
@@ -134,7 +134,7 @@ def E070(account1,wk_off=0):
     pyautogui.hotkey('enter',interval=2.55)
 
 def enter_w064(t1=0):
-    userlocation = pyautogui.locateOnScreen('abs_command.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_command.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(buttonx,buttony,button='left') # command
     pyautogui.typewrite('W064',interval=1.5)
@@ -148,7 +148,7 @@ def enter_w064(t1=0):
 
 def W064(a1,d1,d2,p1):
     #pyautogui.press('tab',interval=1.5)
-    userlocation = pyautogui.locateOnScreen('w064_sold_row.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\w064_sold_row.png')
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     pyautogui.typewrite(a1,interval=0.5)

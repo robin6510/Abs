@@ -30,19 +30,10 @@ last_row=result.index('--end')
 p1_list=result[first_row+1:last_row]
 del result[last_row]
 
-for a1 in  a1_list:
-    if len(a1)<7:
-        pass
-    else:
-        print  a1
-
-
 # 打开需要按时间命名的csv 文本文件
 name_str='W064_result_'+ str(time.strftime("%m%d%H%M",time.localtime()))+'.csv'
 f = open(name_str, 'w')
 f.write('From_date;To_date;Product;Sold#;Items;Amount;Invalid;No\n')
-
-
 
 # 用来拆分字符串的自定义函数,最终输出3个参数 : 截取后 的原字符串, 列表1 ,  列表 2
 def split_order_fulfilment(str1):
