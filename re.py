@@ -23,11 +23,22 @@ for op in op_result:
 
 # 获取参数部分, 包括sold# ,两个date, product
 op_check=str1.replace(str3,'')
-str2=re.findall(r'Sold#\d{7}',op_check)
-
 check_list=[]
-
-
+#获取sold# 的语句
+str2=re.findall(r'Sold#\d{7}',op_check)
+str5=str2[0]
+check_list.append(str5.replace('Sold#',''))
+#获取date的语句
+str2=re.findall(r'Start Ship Date From [\d\/+]{6,8}To [\d\/+]{6,8}',op_check)
+str5=str2[0].replace('Start Ship Date From','')
+str5=str5.replace('To','').replace('/','').replace(' ','0')
+check_list.append(str5[0:6])
+check_list.append(str5[6:12])
+#获取product 的语句
+str2=re.findall(r'Product....:.{1,4}Only Div',op_check)
+str5=str2[0].replace('Product....:','').replace('Only Div','').replace(' ','')
+print str5
+check_list.append(str5)
 
 # sold :    Sold#\d{7}
 # date :    Start Ship Date From [\d\/+]{6,8}To [\d\/+]{6,8}
