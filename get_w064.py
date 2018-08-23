@@ -30,14 +30,21 @@ last_row=result.index('--end')
 p1_list=result[first_row+1:last_row]
 del result[last_row]
 
-# ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+for a1 in  a1_list:
+    if len(a1)<7:
+        pass
+    else:
+        print  a1
+
+
+# ´ò¿ªÐèÒª°´Ê±¼äÃüÃûµÄcsv ÎÄ±¾ÎÄ¼þ
 name_str='W064_result_'+ str(time.strftime("%m%d%H%M",time.localtime()))+'.csv'
 f = open(name_str, 'w')
 f.write('From_date;To_date;Product;Sold#;Items;Amount;Invalid;No\n')
 
 
 
-# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½åº¯ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Öµï¿½
+# ÓÃÀ´²ð·Ö×Ö·û´®µÄ×Ô¶¨Òåº¯Êý,×îÖÕÊä³ö3¸ö²ÎÊý : ½ØÈ¡ºó µÄÔ­×Ö·û´®, ÁÐ±í1 ,  ÁÐ±í 2
 def split_order_fulfilment(str1):
     str2=re.findall(r"\--+(.+?)\+F3=Exit",str1)
     str3=str2[0]
@@ -54,7 +61,7 @@ def split_order_fulfilment(str1):
         list2.extend(re.findall(r'[\d]{1,9}$',op))
     return str3,new_list,list2
 
-screenWidth, screenHeight = pyautogui.size() # ï¿½ï¿½Ä»ï¿½ß´ï¿½
+screenWidth, screenHeight = pyautogui.size() # ÆÁÄ»³ß´ç
 randa_vportal.login(sys.argv[1].lower(),sys.argv[2].upper())
 time.sleep(3)
 pyautogui.hotkey('enter',interval=0.25)

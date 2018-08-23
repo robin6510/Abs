@@ -3,7 +3,7 @@
 import pyautogui,sys,time,string
 import CV
 
-screenWidth, screenHeight = pyautogui.size() # ï¿½ï¿½Ä»ï¿½ß´ï¿½
+screenWidth, screenHeight = pyautogui.size() # »ñÈ¡ÆÁÄ»³ß´ç
 
 
 def login(userid,userpw):
@@ -28,7 +28,7 @@ def login(userid,userpw):
 def logout():
     x1=0.81445
     y1=0.0795
-    pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½
+    pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # µã»÷ ÍË³ö
     pyautogui.hotkey('enter',interval=1.5)
 
 def switch_company_0111():
@@ -147,7 +147,10 @@ def enter_w064(t1=0):
         pyautogui.hotkey('enter',interval=1.5)
 
 def W064(a1,d1,d2,p1):
-    pyautogui.press('tab',interval=1.5)
+    #pyautogui.press('tab',interval=1.5)
+    userlocation = pyautogui.locateOnScreen('w064_sold_row.png')
+    buttonx, buttony = pyautogui.center(userlocation)
+    pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     pyautogui.typewrite(a1,interval=0.5)
     if len(a1)<7:
         pyautogui.press('tab',interval=1.5)

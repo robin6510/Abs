@@ -11,13 +11,12 @@ if len(sys.argv)>2 :
 cf_count=int(sys.argv[1])+1
 
 
-pyautogui.hotkey('alt', 'tab') # ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½
+pyautogui.hotkey('alt', 'tab')  # ÇÐ»»´°¿Ú
 
-#Ä¬ï¿½Ïµï¿½Ç°ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ä´ï¿½ï¿½ï¿½
+#Ä¬ÈÏµ±Ç°ÒÑ¾­ÊÇµ÷ÓÃÌõ¼þ¸ñÊ½µÄÄÚÖÃ´°¿Ú
 
 for i in range(1,6):
-    pyautogui.hotkey('tab') # ï¿½Ð»ï¿½
-
-
+    pyautogui.hotkey('tab') # ÇÐ»»
+    
 for i in range(1,cf_count):
     execfile("F:\Python27\USER_CODE\single_step_cf.py")
