@@ -37,9 +37,8 @@ check_list.append(str5[6:12])
 #»ñÈ¡product µÄÓï¾ä
 str2=re.findall(r'Product....:.{1,4}Only Div',op_check)
 str5=str2[0].replace('Product....:','').replace('Only Div','').replace(' ','')
-print str5
 check_list.append(str5)
-
+#print "{:0>7d}".format(int(check_list[0]))
 # sold :    Sold#\d{7}
 # date :    Start Ship Date From [\d\/+]{6,8}To [\d\/+]{6,8}
 #product :  Product....:.{1,4}Only Div

@@ -3,7 +3,7 @@
 import pyautogui,sys,time,string,os
 import CV
 
-screenWidth, screenHeight = pyautogui.size() # 获取屏幕尺寸
+screenWidth, screenHeight = pyautogui.size()
 curr_path=os.path.abspath('.')+(r'\PNG')
 
 def login(userid,userpw):
@@ -28,7 +28,7 @@ def login(userid,userpw):
 def logout():
     x1=0.81445
     y1=0.0795
-    pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # 获取屏幕尺寸
+    pyautogui.click(screenWidth*x1,screenHeight*y1,button='left')
     pyautogui.hotkey('enter',interval=1.5)
 
 def switch_company_0111():
@@ -56,7 +56,7 @@ def switch_company_0511():
     else:
         buttonx=screenWidth*x
         buttony=screenHeight*y
-    pyautogui.click(buttonx,buttony,button='left',interval=0.5)    
+    pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     time.sleep(2)
     for i in range(1,3):
         pyautogui.hotkey('down',interval=1.5)
@@ -72,7 +72,7 @@ def switch_company_0512():
     else:
         buttonx=screenWidth*x
         buttony=screenHeight*y
-    pyautogui.click(buttonx,buttony,button='left',interval=0.5)    
+    pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     time.sleep(2)
     for i in range(1,4):
         pyautogui.hotkey('down',interval=1.5)
@@ -82,7 +82,7 @@ def switch_company_0513():
     x=0.8914
     y=0.098148
     png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)    
+    userlocation = pyautogui.locateOnScreen(png_path)
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
     time.sleep(2)
@@ -94,7 +94,7 @@ def switch_company_0712():
     x=0.8914
     y=0.098148
     png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)    
+    userlocation = pyautogui.locateOnScreen(png_path)
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
     else:
@@ -110,7 +110,7 @@ def switch_company_0812():
     x=0.8914
     y=0.098148
     png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)    
+    userlocation = pyautogui.locateOnScreen(png_path)
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
     else:
@@ -180,7 +180,7 @@ def W064(a1,d1,d2,p1):
         pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     else:
         pyautogui.press('tab',interval=1.5)
-    time.sleep(0.5)    
+    time.sleep(0.5)
     pyautogui.typewrite(a1,interval=0.5)
     if len(a1)<7:
         pyautogui.press('tab',interval=1.5)
@@ -199,7 +199,12 @@ def W064(a1,d1,d2,p1):
     str1=CV.gettext()
     time.sleep(1)
     pyautogui.press('tab',interval=1.5)
-    return str1
+    condition_list[]
+    condition_list.append("{:0>7d}".format(int(a1)))
+    condition_list.append(d1)
+    condition_list.append(d2)
+    condition_list.append(p1)
+    return condition_list,str1
 
 
 if __name__=="__main__":

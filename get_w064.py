@@ -50,8 +50,26 @@ def split_order_fulfilment(str1):
             str4=' '.join(templist)
             new_list.append(str4)
         list2.extend(re.findall(r'[\d]{1,9}$',op))
-    return str3,new_list,list2
+    # 获取参数部分, 包括sold# ,两个date, product
+    op_check=str1.replace(str3,'')
+    check_list=[]
+    #获取sold# 的语句
+    str2=re.findall(r'Sold#\d{7}',op_check)
+    str5=str2[0]
+    check_list.append(str5.replace('Sold#',''))
+    #获取date的语句
+    str2=re.findall(r'Start Ship Date From [\d\/+]{6,8}To [\d\/+]{6,8}',op_check)
+    str5=str2[0].replace('Start Ship Date From','')
+    str5=str5.replace('To','').replace('/','').replace(' ','0')
+    check_list.append(str5[0:6])
+    check_list.append(str5[6:12])
+    #获取product 的语句
+    str2=re.findall(r'Product....:.{1,4}Only Div',op_check)
+    str5=str2[0].replace('Product....:','').replace('Only Div','').replace(' ','')
+    check_list.append(str5[0:3])
+    return check_list,r3,new_list,list2
 
+# 主过程
 screenWidth, screenHeight = pyautogui.size() # 屏幕尺寸
 randa_vportal.login(sys.argv[1].lower(),sys.argv[2].upper())
 time.sleep(3)
@@ -67,18 +85,21 @@ for p1 in p1_list:
     i +=1
     time.sleep(1)
     for a1 in a1_list:
-        str1=randa_vportal.W064(a1,d1_list[0],d1_list[1],p1)
-        this_str,list1,list2=split_order_fulfilment(str1)
-        t=0
-        for line_out in list1:
-            str2=d1_list[0]+';'+d1_list[1]+';'+ p1+';'+a1+';'+line_out+';'+list2[t]
-            if this_str<>last_str:
-                str2=str2+';;' + str(find_ix)
-            else:
-                str2=str2+';confirm_repeat;' + str(find_ix)
-            f.write(str2+'\n')
-            t +=1
-        find_ix +=1
-        last_str=this_str
-        time.sleep(1)
+        condi_list,str1=randa_vportal.W064(a1.replace('*',''),d1_list[0],d1_list[1],p1)
+        check_list,this_str,list1,list2=split_order_fulfilment(str1)
+        if cmp(condi_list,check_list)==0:
+            t=0
+            for line_out in list1:
+                str2=d1_list[0]+';'+d1_list[1]+';'+ p1+';'+a1+';'+line_out+';'+list2[t]
+                if this_str!=last_str:
+                    str2=str2+';;' + str(find_ix)
+                else:
+                    str2=str2+';confirm_repeat;' + str(find_ix)
+                f.write(str2+'\n')
+                t +=1
+                find_ix +=1
+                last_str=this_str
+                time.sleep(1)
+        else:
+            a1_list.append('*'+a1)
 f.close()
