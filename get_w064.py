@@ -67,7 +67,7 @@ def split_order_fulfilment(str1):
     str2=re.findall(r'Product....:.{1,4}Only Div',op_check)
     str5=str2[0].replace('Product....:','').replace('Only Div','').replace(' ','')
     check_list.append(str5[0:3])
-    return check_list,r3,new_list,list2
+    return check_list,str3,new_list,list2
 
 # Ö÷¹ý³Ì
 screenWidth, screenHeight = pyautogui.size() # ÆÁÄ»³ß´ç
