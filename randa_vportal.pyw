@@ -124,7 +124,7 @@ def switch_company_0812():
 
 def cm18():
     x1=0.05
-    y1=0.09444
+    y1=0.12685185185185185
     pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # command
     pyautogui.typewrite('CM18',interval=1.5)
     pyautogui.hotkey('enter',interval=1.5)
@@ -138,7 +138,7 @@ def cm18():
 
 def E070(account1,wk_off=0):
     x1=0.05
-    y1=0.09444
+    y1=0.12685185185185185
     wk1=int(time.strftime("%w",time.localtime()))+1+int(wk_off)*7
     d2=str(time.strftime("%y%m%d",time.localtime()-wk1))
     d1=str(time.strftime("%y%m%d",time.localtime()-wk1-7))
@@ -159,9 +159,15 @@ def E070(account1,wk_off=0):
     pyautogui.hotkey('enter',interval=2.55)
 
 def enter_w064(t1=0):
+    x=0.05
+    y=0.12685185185185185
     png_path=curr_path+r'\abs_command.png'
     userlocation = pyautogui.locateOnScreen(png_path)
-    buttonx, buttony = pyautogui.center(userlocation)
+    if userlocation:
+        buttonx, buttony = pyautogui.center(userlocation)
+    else:
+        buttonx=screenWidth*x
+        buttony=screenHeight*y
     pyautogui.click(buttonx,buttony,button='left') # command
     pyautogui.typewrite('W064',interval=1.5)
     time.sleep(3)
@@ -183,23 +189,23 @@ def W064(a1,d1,d2,p1):
     time.sleep(0.5)
     pyautogui.typewrite(a1,interval=0.5)
     if len(a1)<7:
-        pyautogui.press('tab',interval=1.5)
+        pyautogui.press('tab',interval=0.5)
     pyautogui.typewrite(d1,interval=0.5)
     pyautogui.typewrite(d2,interval=0.5)
     for i in range(3):
-        pyautogui.press('tab',interval=1.5)
+        pyautogui.press('tab',interval=0.5)
     pyautogui.typewrite(p1,interval=0.5)
-    pyautogui.hotkey('enter',interval=0.5)
-    time.sleep(3)
+    pyautogui.hotkey('enter',interval=1)
+    time.sleep(5)
     pyautogui.click(screenWidth/2,screenHeight/2,button='left')
-    pyautogui.hotkey('ctrl','a',interval=0.25)
-    time.sleep(1)
+    time.sleep(2)
+    pyautogui.hotkey('ctrl','a',interval=0.25)    
     pyautogui.hotkey('ctrl','c',interval=0.25)
     time.sleep(1)
     str1=CV.gettext()
     time.sleep(1)
     pyautogui.press('tab',interval=1.5)
-    condition_list[]
+    condition_list=[]
     condition_list.append("{:0>7d}".format(int(a1)))
     condition_list.append(d1)
     condition_list.append(d2)

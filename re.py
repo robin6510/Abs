@@ -6,6 +6,10 @@ import sys,string,time,re
 f=open('w064_result.txt')
 str1=f.read()
 str2=re.findall(r"\--+(.+?)\+F3=Exit",str1)
+print len(str2)
+str3=str2[0]
+print str3
+sys.exit(1)
 str3=str2[0]
 
 #获取结果部分
