@@ -14,11 +14,11 @@ def login(userid,userpw):
     #x1=0.9585
     #y1=0.8870
     #pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # username
-    userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_user.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_user.png')         #这个是成功的
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.doubleClick(buttonx,buttony) # username
     pyautogui.hotkey('end')         # end
-    for i in range(1,12):
+    for i in range(1,20):
         pyautogui.hotkey('backspace')         # bkspace
     pyautogui.typewrite(userid,interval=0.5)
     pyautogui.hotkey('tab',interval=0.5)
@@ -31,10 +31,10 @@ def logout():
     pyautogui.click(screenWidth*x1,screenHeight*y1,button='left')
     pyautogui.hotkey('enter',interval=1.5)
 
-def switch_company_0111():
+def switch_company(div):
     x=0.8914
     y=0.098148
-    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo.png')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\logo_1080.png')
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
     else:
@@ -42,83 +42,9 @@ def switch_company_0111():
         buttony=screenHeight*y
     pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     time.sleep(2)
-    for i in range(1,2):
-        pyautogui.hotkey('down',interval=1.5)
-    pyautogui.hotkey('enter',interval=1.5)
-
-def switch_company_0511():
-    x=0.8914
-    y=0.098148
-    png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)
-    if userlocation:
-        buttonx, buttony = pyautogui.center(userlocation)
-    else:
-        buttonx=screenWidth*x
-        buttony=screenHeight*y
-    pyautogui.click(buttonx,buttony,button='left',interval=0.5)
-    time.sleep(2)
-    for i in range(1,3):
-        pyautogui.hotkey('down',interval=1.5)
-    pyautogui.hotkey('enter',interval=1.5)
-
-def switch_company_0512():
-    x=0.8914
-    y=0.098148
-    png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)
-    if userlocation:
-        buttonx, buttony = pyautogui.center(userlocation)
-    else:
-        buttonx=screenWidth*x
-        buttony=screenHeight*y
-    pyautogui.click(buttonx,buttony,button='left',interval=0.5)
-    time.sleep(2)
-    for i in range(1,4):
-        pyautogui.hotkey('down',interval=1.5)
-    pyautogui.hotkey('enter',interval=1.5)
-
-def switch_company_0513():
-    x=0.8914
-    y=0.098148
-    png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)
-    buttonx, buttony = pyautogui.center(userlocation)
-    pyautogui.click(screenWidth*x,buttony,button='left',interval=0.5)
-    time.sleep(2)
-    for i in range(1,5):
-        pyautogui.hotkey('down',interval=1.5)
-    pyautogui.hotkey('enter',interval=1.5)
-
-def switch_company_0712():
-    x=0.8914
-    y=0.098148
-    png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)
-    if userlocation:
-        buttonx, buttony = pyautogui.center(userlocation)
-    else:
-        buttonx=screenWidth*x
-        buttony=screenHeight*y
-    pyautogui.click(buttonx,buttony,button='left',interval=0.5)
-    time.sleep(2)
-    for i in range(1,6):
-        pyautogui.hotkey('down',interval=1.5)
-    pyautogui.hotkey('enter',interval=1.5)
-
-def switch_company_0812():
-    x=0.8914
-    y=0.098148
-    png_path=curr_path+r'\logo.png'
-    userlocation = pyautogui.locateOnScreen(png_path)
-    if userlocation:
-        buttonx, buttony = pyautogui.center(userlocation)
-    else:
-        buttonx=screenWidth*x
-        buttony=screenHeight*y
-    pyautogui.click(buttonx,buttony,button='left',interval=0.5)
-    time.sleep(2)
-    for i in range(1,7):
+    dict_co={'0111':2,'0511':3,'0512':4,'0513':5,'0712':6,'0812':7}
+    curr_int=int(dict_co[div])
+    for i in range(1,curr_int):
         pyautogui.hotkey('down',interval=1.5)
     pyautogui.hotkey('enter',interval=1.5)
 
@@ -161,8 +87,7 @@ def E070(account1,wk_off=0):
 def enter_w064(t1=0):
     x=0.05
     y=0.12685185185185185
-    png_path=curr_path+r'\abs_command.png'
-    userlocation = pyautogui.locateOnScreen(png_path)
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_command.png')
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
     else:
@@ -179,16 +104,16 @@ def enter_w064(t1=0):
         pyautogui.hotkey('enter',interval=1.5)
 
 def W064(a1,d1,d2,p1):
-    png_path=curr_path+r'\w064_sold_row.png'
-    userlocation = pyautogui.locateOnScreen(png_path)
+    sold=a1.replace('*','')
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\w064_sold_row.png')
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
         pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     else:
         pyautogui.press('tab',interval=1.5)
     time.sleep(0.5)
-    pyautogui.typewrite(a1,interval=0.5)
-    if len(a1)<7:
+    pyautogui.typewrite(sold,interval=0.5)
+    if len(sold)<7:
         pyautogui.press('tab',interval=0.5)
     pyautogui.typewrite(d1,interval=0.5)
     pyautogui.typewrite(d2,interval=0.5)
@@ -196,14 +121,17 @@ def W064(a1,d1,d2,p1):
         pyautogui.press('tab',interval=0.5)
     pyautogui.typewrite(p1,interval=0.5)
     pyautogui.hotkey('enter',interval=1)
-    time.sleep(5)
+    time.sleep(3)
+    if a1==sold:
+        pass
+    else:
+        icount=len(a1)-len(sold)
+        for  i in range(icount):
+            time.sleep(2)
     pyautogui.click(screenWidth/2,screenHeight/2,button='left')
-    time.sleep(2)
-    pyautogui.hotkey('ctrl','a',interval=0.25)    
+    pyautogui.hotkey('ctrl','a',interval=0.25)
     pyautogui.hotkey('ctrl','c',interval=0.25)
-    time.sleep(1)
     str1=CV.gettext()
-    time.sleep(1)
     pyautogui.press('tab',interval=1.5)
     condition_list=[]
     condition_list.append("{:0>7d}".format(int(a1)))

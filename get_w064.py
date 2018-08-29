@@ -76,11 +76,11 @@ def split_order_fulfilment(str1):
 # Ö÷¹ý³Ì
 screenWidth, screenHeight = pyautogui.size() # ÆÁÄ»³ß´ç
 randa_vportal.login(sys.argv[1].lower(),sys.argv[2].upper())
-time.sleep(3)
-pyautogui.hotkey('enter',interval=0.25)
-time.sleep(3)
-randa_vportal.switch_company_0712()
 time.sleep(2)
+pyautogui.hotkey('enter',interval=0.25)
+time.sleep(2)
+randa_vportal.switch_company('0712')
+time.sleep(1)
 i=0
 find_ix=0
 last_str=''
@@ -89,9 +89,8 @@ for p1 in p1_list:
     i +=1
     sold_list=[]
     sold_list.extend(a1_list)
-    time.sleep(1)
     for a1 in sold_list:
-        condi_list,str1=randa_vportal.W064(a1.replace('*',''),d1_list[0],d1_list[1],p1)
+        condi_list,str1=randa_vportal.W064(a1,d1_list[0],d1_list[1],p1)
         check_list,this_str,list1,list2=split_order_fulfilment(str1)
         if cmp(condi_list,check_list)==0:
             t=0
@@ -105,7 +104,6 @@ for p1 in p1_list:
                 t +=1
             find_ix +=1
             last_str=this_str
-            time.sleep(1)
         else:
             sold_list.append('*'+a1)
 f.close()
