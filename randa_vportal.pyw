@@ -14,7 +14,7 @@ def login(userid,userpw):
     #x1=0.9585
     #y1=0.8870
     #pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # username
-    userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_user.png')         #这个是成功的
+    userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_user.png')         #杩欎釜鏄垚鍔熺殑
     buttonx, buttony = pyautogui.center(userlocation)
     pyautogui.doubleClick(buttonx,buttony) # username
     pyautogui.hotkey('end')         # end
@@ -32,8 +32,8 @@ def logout():
     pyautogui.hotkey('enter',interval=1.5)
 
 def switch_company(div):
-    x=0.8914
-    y=0.098148
+    x=float(1647)/1920
+    y=float(112)/1080
     userlocation = pyautogui.locateOnScreen(curr_path+r'\logo_1080.png')
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
@@ -49,8 +49,8 @@ def switch_company(div):
     pyautogui.hotkey('enter',interval=1.5)
 
 def cm18():
-    x1=0.05
-    y1=0.12685185185185185
+    x1=float(99)/1920
+    y1=float(137)/1080
     pyautogui.click(screenWidth*x1,screenHeight*y1,button='left') # command
     pyautogui.typewrite('CM18',interval=1.5)
     pyautogui.hotkey('enter',interval=1.5)
@@ -63,8 +63,8 @@ def cm18():
     pyautogui.hotkey('enter',interval=1.55)
 
 def E070(account1,wk_off=0):
-    x1=0.05
-    y1=0.12685185185185185
+    x1=float(99)/1920
+    y1=float(137)/1080
     wk1=int(time.strftime("%w",time.localtime()))+1+int(wk_off)*7
     d2=str(time.strftime("%y%m%d",time.localtime()-wk1))
     d1=str(time.strftime("%y%m%d",time.localtime()-wk1-7))
@@ -85,8 +85,8 @@ def E070(account1,wk_off=0):
     pyautogui.hotkey('enter',interval=2.55)
 
 def enter_w064(t1=0):
-    x=0.05
-    y=0.12685185185185185
+    x=float(99)/1920
+    y=float(137)/1080
     userlocation = pyautogui.locateOnScreen(curr_path+r'\abs_command.png')
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
@@ -105,12 +105,7 @@ def enter_w064(t1=0):
 
 def W064(a1,d1,d2,p1):
     sold=a1.replace('*','')
-    userlocation = pyautogui.locateOnScreen(curr_path+r'\w064_sold_row.png')
-    if userlocation:
-        buttonx, buttony = pyautogui.center(userlocation)
-        pyautogui.click(buttonx,buttony,button='left',interval=0.5)
-    else:
-        pyautogui.press('tab',interval=1.5)
+    pyautogui.press('tab',interval=1.5)
     time.sleep(0.5)
     pyautogui.typewrite(sold,interval=0.5)
     if len(sold)<7:
@@ -121,7 +116,7 @@ def W064(a1,d1,d2,p1):
         pyautogui.press('tab',interval=0.5)
     pyautogui.typewrite(p1,interval=0.5)
     pyautogui.hotkey('enter',interval=1)
-    time.sleep(3)
+    time.sleep(3)                                                   # press enter we have to wait
     if a1==sold:
         pass
     else:
@@ -134,7 +129,7 @@ def W064(a1,d1,d2,p1):
     str1=CV.gettext()
     pyautogui.press('tab',interval=1.5)
     condition_list=[]
-    condition_list.append("{:0>7d}".format(int(a1)))
+    condition_list.append("{:0>7d}".format(int(sold)))
     condition_list.append(d1)
     condition_list.append(d2)
     condition_list.append(p1)
