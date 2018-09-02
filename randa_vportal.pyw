@@ -112,9 +112,12 @@ def W064(a1,d1,d2,p1):
         pyautogui.press('tab',interval=0.5)
     pyautogui.typewrite(d1,interval=0.5)
     pyautogui.typewrite(d2,interval=0.5)
-    for i in range(3):
-        pyautogui.press('tab',interval=0.5)
-    pyautogui.typewrite(p1,interval=0.5)
+    if p1=='All':
+        pass
+    else:
+        for i in range(3):
+            pyautogui.press('tab',interval=0.5)
+        pyautogui.typewrite(p1,interval=0.5)
     pyautogui.hotkey('enter',interval=1)
     time.sleep(3)                                                   # press enter we have to wait
     if a1==sold:

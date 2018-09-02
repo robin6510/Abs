@@ -68,6 +68,8 @@ def split_order_fulfilment(str1):
         #»ñÈ¡product µÄÓï¾ä
         str2=re.findall(r'Product.+Only Div',op_check)
         str5=str2[0].replace('Product....:','').replace('Only Div','').replace(' ','')
+        if str5[0]=='*':
+            str5=str5.replace('*','')
         check_list.append(str5[0:3])
     else:
         pass
