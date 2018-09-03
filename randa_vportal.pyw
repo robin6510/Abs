@@ -38,8 +38,8 @@ def switch_company(div):
     if userlocation:
         buttonx, buttony = pyautogui.center(userlocation)
     else:
-        buttonx=screenWidth*x
         buttony=screenHeight*y
+    buttonx=screenWidth*x
     pyautogui.click(buttonx,buttony,button='left',interval=0.5)
     time.sleep(2)
     dict_co={'0111':2,'0511':3,'0512':4,'0513':5,'0712':6,'0812':7}
