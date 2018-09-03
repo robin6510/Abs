@@ -37,7 +37,7 @@ f.write('From_date;To_date;Product;Sold#;Items;Amount;Invalid;No\n')
 
 # 用来拆分字符串的自定义函数,最终输出3个参数 : 截取后 的原字符串, 列表1 ,  列表 2
 def split_order_fulfilment(str1):
-    str2=re.findall(r"\--+(.+?)\+F3=Exit",str1)
+    str2=re.findall(r"\--+(.+?)\F3=Exit",str1)
     new_list=[]
     list2=[]
     check_list=[]
@@ -76,17 +76,22 @@ def split_order_fulfilment(str1):
     return check_list,str3,new_list,list2
 
 # 主过程
-screenWidth, screenHeight = pyautogui.size() # 屏幕尺寸
-randa_vportal.login(sys.argv[1].lower(),sys.argv[2].upper())
-time.sleep(2)
-pyautogui.hotkey('enter',interval=0.25)
-time.sleep(2)
-randa_vportal.switch_company('0712')
-time.sleep(1)
+if sys.argv[1]=="-G":
+    pyautogui.hotkey('win','4',interval=1.5)  #open chrome
+    time.sleep(3)
+else:
+    screenWidth, screenHeight = pyautogui.size() # 屏幕尺寸
+    randa_vportal.login(sys.argv[1].lower(),sys.argv[2].upper())
+    time.sleep(2)
+    pyautogui.hotkey('enter',interval=0.25)
+    time.sleep(2)
+    randa_vportal.switch_company('0712')
+    time.sleep(1)
+    randa_vportal.enter_w064(i)
 i=0
 find_ix=0
 last_str=''
-randa_vportal.enter_w064(i)
+
 for p1 in p1_list:
     i +=1
     sold_list=[]

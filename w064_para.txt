@@ -38,11 +38,6 @@ list_account
 --end
 
 list_product
-All
-010
-060
-065
-410
 430
 460
 020
