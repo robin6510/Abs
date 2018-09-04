@@ -33,7 +33,7 @@ del result[last_row]
 # 打开需要按时间命名的csv 文本文件
 name_str='W064_result_'+ str(time.strftime("%m%d%H%M",time.localtime()))+'.csv'
 f = open(name_str, 'w')
-f.write('From_date;To_date;Product;Sold#;Items;Amount;Invalid;No\n')
+f.write('From_date;To_date;Product;Sold#;Items;Amount;Invalid;No;Fill_Rpt\n')
 
 # 用来拆分字符串的自定义函数,最终输出3个参数 : 截取后 的原字符串, 列表1 ,  列表 2
 def split_order_fulfilment(str1):
@@ -99,6 +99,9 @@ for p1 in p1_list:
     for a1 in sold_list:
         condi_list,str1=randa_vportal.W064(a1,d1_list[0],d1_list[1],p1)
         check_list,this_str,list1,list2=split_order_fulfilment(str1)
+        if  len(list2)==2:
+            if list2[0] in list2[1]:
+                list2[1]=list2[0]
         if cmp(condi_list,check_list)==0:
             t=0
             for line_out in list1:
@@ -106,7 +109,7 @@ for p1 in p1_list:
                 if this_str!=last_str:
                     str2=str2+';;' + str(find_ix)
                 else:
-                    str2=str2+';confirm_repeat;' + str(find_ix)
+                    str2=str2+';confirm_repeat;' + str(find_ix)+';'
                 f.write(str2+'\n')
                 t +=1
             find_ix +=1
