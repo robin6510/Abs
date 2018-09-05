@@ -101,7 +101,7 @@ for p1 in p1_list:
         check_list,this_str,list1,list2=split_order_fulfilment(str1)
         list3=[]
         for chk in list2:
-            if chk>list2[0]:
+            if int(chk)>int(list2[0]):
                 list3.append(chk[:-3])
             else:
                 list3.append(chk)
@@ -112,7 +112,7 @@ for p1 in p1_list:
                 if this_str!=last_str:
                     str2=str2+';;' + str(find_ix)+';'+list3[t]+';'
                 else:
-                    str2=str2+';confirm_repeat;' + str(find_ix)+list3[t]+';'
+                    str2=str2+';confirm_repeat;' + str(find_ix)+';'+list3[t]+';'
                 f.write(str2+'\n')
                 t +=1
             find_ix +=1
