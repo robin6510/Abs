@@ -116,7 +116,7 @@ for p1 in p1_list:
                 f.write(str2+'\n')
                 t +=1
             find_ix +=1
-            last_str=this_str
         else:
             sold_list.append('*'+a1)
+        last_str=this_str
 f.close()
