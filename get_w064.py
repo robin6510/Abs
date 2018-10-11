@@ -60,7 +60,7 @@ def split_order_fulfilment(str1):
         str5=str2[0]
         check_list.append(str5.replace('Sold#',''))
         #»ñÈ¡dateµÄÓï¾ä
-        str2=re.findall(r'Start Ship Date From\s*[\d\/+]{6,8}To [\d\/+]{6,8}',op_check)
+        str2=re.findall(r'Start Ship Date From\s*[\d\/+]{6,8}To\s*[\d\/+]{6,8}',op_check)
         str5=str2[0].replace('Start Ship Date From','')
         str5=str5.replace('To','').replace('/','').replace(' ','0')
         check_list.append(str5[0:6])
