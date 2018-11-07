@@ -44,7 +44,7 @@ def split_order_fulfilment(str1):
     str3=''
     if len(str2)>0:
         str3=str2[0]
-        op_result=re.findall(r'[A-Z\>][a-zA-Z\s\(]{1,30}\s[\d]{1,9}',str3)
+        op_result=re.findall(r'[A-Z\>][a-zA-Z\s\(]{1,30}\s?[\d]{1,9}',str3)
         for op in op_result:
             templist=re.findall(r'[A-Z\>\(][A-Za-z\(]+',op)
             if len(templist)==1:
